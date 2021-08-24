@@ -1,0 +1,30 @@
+blockquote::before {
+	content: '\f10d';
+font-family: "Font Awesome 5 free";
+font-weight: 900;
+	font-size: 50px;
+	color: red;
+	font-weight: bold;
+}
+ul{
+	display: flex;
+	list-style-type: none;
+}
+
+li:first-child{
+	background-color: aqua;
+}
+li:last-child{
+	background-color:  brown;
+}
+li:nth-child(3){
+background-color: #fff;
+}
+
+a:hover{
+	color: crimson;
+}
+/* #test > div > div[class=b] {
+	font-style: 20px;
+	border: 2px solid red;
+} */

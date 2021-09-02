@@ -1,0 +1,85 @@
+body{
+	font-family: Roboto;
+}
+
+:root {
+	--main-color: #5361ff;
+	--box-size: 16px;
+}
+
+
+nav,#carouselExampleIndicators {
+	width: 80%;
+	margin: auto;
+}
+
+nav{
+	height: 50px;
+}
+header {
+	background-color: var(--main-color);
+}
+
+#navbarSupportedContent{
+	flex-grow: 0 !important;
+	height: 250px;
+}
+.carousel-inner{
+	height: 250px;
+}
+/*Headers
+*/
+.beautiful {
+	font-weight: 700;
+	font-size: 40px;
+	text-align: center;
+	position:relative ;
+}
+
+.beautiful::after {
+	content: "";
+	display: block;
+	width: 5%;
+	border-bottom: 3px solid var(--main-color);
+	position: relative;
+	margin: auto;
+}
+.contentBlock .active {
+	margin: 5px;
+	background-color: gainsboro!important;
+}
+.contentBlock .active:hover{
+background-color: var(--main-color) !important;
+}
+
+.portfolioBox{
+	position: relative;
+	overflow: hidden;
+	border-radius: 10px;
+	border: 1px solid var(--main-color);
+	width: 250px;
+	height: 150px;
+}
+
+.portfolioBox .detailsView {
+	position: absolute;
+	border-radius: 10px;
+	width: 100%;
+	height: 100%;
+	bottom: -100%;
+	transition: .5s;
+	backdrop-filter: blur(5px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-size: 25px;
+}
+
+.detailsView a{
+	text-decoration: none;
+	color: gainsboro;
+}
+.portfolioBox:hover .detailsView {
+	bottom: 0;
+}

@@ -1,0 +1,42 @@
+body{
+	min-height: 100vh;
+}
+.day{
+	background-image: url(./img/day.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.night{
+	background-image: url(./img/night.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+#weather{
+width: 100px;
+height: 100px;
+}
+
+#temp{
+color: blue;
+font-size: 16px;
+text-align: center;
+}
+#city{
+	font-size: 12px;
+text-align: center;
+color: aquamarine;
+}
+#description{
+	font-size: 10px;
+text-align: center;
+color: chartreuse;
+}
+#switch{
+	text-align: center;
+
+}
+#icon{
+
+}

@@ -1,14 +1,8 @@
 //api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
-
 //89be48c324d777404e3c0bbd045b2dbc
 
-class weather {
-settings = {
-	url: 'https://api.openweathermap.org/data/2.5/weather',
-	q: 'Tallinn',
-	appid: '89be48c324d777404e3c0bbd045b2dbc',
-	units: weather.units.imperial
-}
+class weather extends Url {
+
 
 static units = {
 	SUMMER: "standart",
@@ -16,16 +10,13 @@ static units = {
 	imperial: "imperial"
 }
 
-	constructor(settings = {empty: true}) {
+
+	constructor(settings) {
 		
+		super()
 
-		if(typeof settings == 'object' && settings.empty == false) 
-		{
+		this.parseSettings(settings)
 
-			if(settings.hasOwnProperty('url') == true) this.settings.url = settings.url
-			if(settings.hasOwnProperty('q'))this.settings.q = settings.q
-			if(settings.hasOwnProperty('appid'))this.settings.appid = settings.appid
-		}
 		this.checkDayPart()
 
 		this.getData()
@@ -33,22 +24,22 @@ static units = {
 		console.log('---end of class---')
 	}
 
-	generateApiUrl(){
+	// generateApiUrl(){
 
 
-		// console.log(Object.entries(this.settings))
-		let urlItems = []
-		Object.entries(this.settings).forEach(item => {
-			if(item[0] != 'url')
-			urlItems.push(item[0] + "=" + item[1])
+	// 	// console.log(Object.entries(this.settings))
+	// 	let urlItems = []
+	// 	Object.entries(this.settings).forEach(item => {
+	// 		if(item[0] != 'url')
+	// 		urlItems.push(item[0] + "=" + item[1])
 
-		})
-		return this.settings.url + "?" + urlItems.join('&')
+	// 	})
+	// 	return this.settings.url + "?" + urlItems.join('&')
 
-	}
+	// }
 
 	getData(){
-
+		
 		fetch(this.generateApiUrl())
 		.then(Response => Response.json())
 		.then(data => {
@@ -65,6 +56,8 @@ static units = {
 		})
 
 	}
+
+	
 
 checkDayPart(){
 	let date = new Date()
@@ -100,13 +93,19 @@ checkDayPart(){
 }
 
 let settings = {
-	units: weather.units.imperial
-}
-let w = new weather({settings})
+		url: 'https://api.openweathermap.org/data/2.5/weather',
+		q: 'Tallinn',
+		appid: '89be48c324d777404e3c0bbd045b2dbc',
+		units: weather.units.imperial
+	}
+let w = new weather(settings)
 console.log(w.generateApiUrl())
 w.getData()
 
-//docement.querySelector()
+
+
+
+//document.querySelector()
 console.log($('#weather').html())
 console.log($('input[type="checkbox"]').val())
 
@@ -131,4 +130,3 @@ $('input[type="checkbox"]').on('change', (event) => {
 	state = 'off'
 	}
 })
-

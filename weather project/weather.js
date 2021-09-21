@@ -105,3 +105,30 @@ let settings = {
 let w = new weather({settings})
 console.log(w.generateApiUrl())
 w.getData()
+
+//docement.querySelector()
+console.log($('#weather').html())
+console.log($('input[type="checkbox"]').val())
+
+let state = 'on'
+
+$('input[type="checkbox"]').on('change', (event) => {
+	console.log(event.target.state)
+
+	if (state == 'off'){
+		w.settings.units = weather.units.imperial
+		w.getData()
+			$('#temp').fadeOut(2000, ()=>{
+				console.log('off: effect is ended')
+			})
+			state = 'on'
+} else {
+	w.settings.units = weather.units.metric
+		w.getData()
+	$('#temp').fadeIn(2000, () => {
+		console.log('on: effect is ended')
+	})
+	state = 'off'
+	}
+})
+
